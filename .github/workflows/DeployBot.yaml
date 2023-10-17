@@ -33,7 +33,7 @@ jobs:
           push: true
           tags: ${{ env.IMG_NAME }}:latest
           context: .
-          file: Scripts/Deployment/Webserver-Dockerfile
+          file: ./Dockerfile
           labels: |
             org.opencontainers.image.title=${{ env.IMG_NAME }}
             org.opencontainers.image.source=https://hub.docker.com/repository/docker/mklepium/telegram_bot
