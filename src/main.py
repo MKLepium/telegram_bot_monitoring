@@ -22,7 +22,7 @@ def stop(message):
 	bot.stop_polling()
 
 # print the group id
-@bot.message_handler(commands=['groupid'])
+@bot.message_handler(commands=['groupid']) 
 def send_groupid(message):
 	bot.reply_to(message, message.chat.id)
 
