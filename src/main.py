@@ -11,8 +11,8 @@ bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-	print("start command received")
-	print(message.chat.id)
+    print("start command received")
+    print(message.chat.id)
     if message.chat.type == 'private':
         bot.reply_to(message, "Why are you here? This is private")
     else:
@@ -20,18 +20,16 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['stop'])
 def stop(message):
-	print("start command received")
-	print(message.chat.id)
-	print(message.chat.type)
-	print(message.chat)
-	bot.reply_to(message, "Bye!")
-	bot.stop_polling()
+    print("start command received")
+    print(message.chat.id)
+    print(message.chat.type)
+    print(message.chat)
+    bot.reply_to(message, "Bye!")
+    bot.stop_polling()
 
 # print the group id
 @bot.message_handler(commands=['groupid']) 
 def send_groupid(message):
-	bot.reply_to(message, message.chat.id)
-
-
+    bot.reply_to(message, message.chat.id)
 
 bot.infinity_polling()
