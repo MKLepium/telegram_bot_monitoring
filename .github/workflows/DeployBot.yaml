@@ -52,4 +52,4 @@ jobs:
             docker stop telegram_bot || true
             docker logs telegram_bot > dockerlog_$(date +"%Y_%m_%d_%I_%M_%p").log || true
             docker rm telegram_bot || true
-            docker run -d --name telegram_bot -e TELEGRAM_TOKEN="${{ secrets.TELEGRAM_TOKEN }}" ${{ env.IMG_NAME }}:latest
+            docker run -d --network="host"  --name telegram_bot -e TELEGRAM_TOKEN="${{ secrets.TELEGRAM_TOKEN }}" ${{ env.IMG_NAME }}:latest
