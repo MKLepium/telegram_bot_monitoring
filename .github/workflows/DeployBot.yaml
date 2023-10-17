@@ -46,9 +46,10 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           key: ${{ secrets.SERVER_PASSWORD }}  # I missnamed it in GIT
           script: |
-            mkdir -p ~/telegram_bot
+            cd /opt/telegram_bot
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker pull ${{ env.IMG_NAME }}:latest
             docker stop telegram_bot || true
+            docker logs telegram_bot > dockerlog_$(date +"%Y_%m_%d_%I_%M_%p").log || true
             docker rm telegram_bot || true
             docker run -d --name telegram_bot ${{ env.IMG_NAME }}:latest
