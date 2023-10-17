@@ -46,7 +46,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /opt/telegram_bot 
+            cd /opt/telegram_bot  
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker pull ${{ env.IMG_NAME }}:latest
             docker stop telegram_bot || true
