@@ -6,6 +6,7 @@ WORKDIR /src
 
 # Install dependencies
 COPY ./src /src
+COPY requirements.txt /src 
 RUN pip3 install -r requirements.txt
 
 
